@@ -1,0 +1,65 @@
+# program to validate a date
+
+# function to validate integer
+def valid_integer(x):
+    integer_validation = False
+    while not integer_validation:
+        try:
+            integer = int(x)
+            integer_validation = True
+            return True
+        except ValueError:
+            return False
+
+# Prompt user to enter a year
+year = input("What year is it? ")
+year_validation1 = False
+while not year_validation1:
+    while True:
+        if valid_integer(year) == True:
+            break
+        else:
+            year = input("Please enter a number. > ")
+    year_validation2 = False
+    while not year_validation2:
+        year = int(year)        
+        if year < 1900 or year > 2022:
+            year = input("This is not a valid date. Please try again. > ")
+            break
+        else:
+            print(f"Thanks, {year} is fine!")
+            year_validation2 = True
+            year_validation1 = True
+
+# Prompt user to enter a month as a word
+months = {"January": 31, "February": 29, "March": 31, "April": 30, "May": 31, "June": 30, "July": 31, "August": 31, "September": 30, "October": 31, "November": 30, "December": 31}
+month_validation = False
+while not month_validation:
+    month = input("What month is it? ")
+    if month in months:
+        print(f"Thanks, {month} is fine!")
+        month_validation = True
+    else:
+        print("This is incorrect. Please try again. > ")
+
+# Prompt user to enter a day in the month
+date = input("What day of the month is it? ")
+date_validation1 = False
+while not date_validation1:
+    while True:
+        if valid_integer(date) == True:
+            break
+        else:
+            date = input("Please enter a number. > ")
+    date_validation2 = False
+    while not date_validation2:
+        date = int(date)        
+        if date < 1 or date > months[month]:
+            date = input("This is not a valid date. Please try again. > ")
+            break
+        else:
+            print(f"Thanks, {date} is fine!")
+            date_validation2 = True
+            date_validation1 = True
+            
+print(f"The date you have entered is: {date} of {month}, {year}.")
