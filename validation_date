@@ -24,10 +24,10 @@ while not year_validation1:
     while not year_validation2:
         year = int(year)        
         if year < 1900 or year > 2022:
-            year = input("This is not a valid date. Please try again. > ")
+            year = input("That is not a valid date. Please try again. > ")
             break
         else:
-            print(f"Thanks, {year} is fine!")
+            print(f"Thanks, the year you have entered is {year}.")
             year_validation2 = True
             year_validation1 = True
 
@@ -37,10 +37,10 @@ month_validation = False
 while not month_validation:
     month = input("What month is it? ")
     if month in months:
-        print(f"Thanks, {month} is fine!")
+        print(f"Thanks, the month you have entered is {month}.")
         month_validation = True
     else:
-        print("This is incorrect. Please try again. > ")
+        print("That is incorrect. Please try again. > ")
 
 # Prompt user to enter a day in the month
 date = input("What day of the month is it? ")
@@ -55,10 +55,10 @@ while not date_validation1:
     while not date_validation2:
         date = int(date)        
         if date < 1 or date > months[month]:
-            date = input("This is not a valid date. Please try again. > ")
+            date = input("That is not a valid date. Please try again. > ")
             break
         else:
-            print(f"Thanks, {date} is fine!")
+            print(f"Thanks, the day of the month you have entered is {date}.")
             date_validation2 = True
             date_validation1 = True
             
